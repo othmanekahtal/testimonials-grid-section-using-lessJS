@@ -1,0 +1,186 @@
+// we need import this font for the web site (https://fonts.google.com/specimen/Barlow+Semi+Condensed)
+
+@Moderate-violet: hsl(263, 55%, 52%);
+@Very-dark-grayish-blue: hsl(217, 19%, 35%);
+@Very-dark-blackish-blue: hsl(219, 29%, 14%);
+@White: hsl(0, 0%, 100%);
+@Light-gray: hsl(0, 0%, 81%);
+@light-grayish-blue: hsl(210, 46%, 95%);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.3rem;
+  background-color: hsl(210, 46%, 95%);
+  font-weight: 500;
+}
+.container {
+  margin: 10vh auto;
+  max-width: 125rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 2.5rem;
+  grid-template-areas:
+    "person-1 person-1 person-2 person-3"
+    "person-4 person-5 person-5 person-3";
+  & > * {
+    display: block;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 2.5rem rgba(35, 35, 35, 0.3);
+    padding: 2rem;
+    .person__info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      .person__cover {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+        box-sizing: content-box;
+        border: 3px solid transparent;
+      }
+      .person__name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: currentColor;
+      }
+    }
+    .header-subject {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+  }
+  & .person-1 {
+    grid-area: person-1;
+    background-color: @Moderate-violet;
+    background-image: url("../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: 90% top;
+    @color: @White;
+    color: @color;
+    .person__cover {
+      border-color: #a775f1 !important;
+    }
+    .person__name {
+      color: currentColor;
+    }
+    .person__property {
+      color: rgba(@color, 0.5);
+    }
+    blockquote {
+      color: rgba(@color, 0.7);
+    }
+  }
+  & .person-2 {
+    grid-area: person-2;
+    background-color: @Very-dark-grayish-blue;
+    @color: @White;
+    color: @color;
+    .person__name {
+      color: currentColor;
+    }
+    .person__property {
+      color: rgba(@color, 0.5);
+    }
+    blockquote {
+      color: rgba(@color, 0.7);
+    }
+  }
+  & .person-5 {
+    grid-area: person-3;
+    background-color: @White;
+
+    @color: @Very-dark-blackish-blue;
+    color: @color;
+    .person__name {
+      color: currentColor;
+    }
+    .person__property {
+      color: rgba(@color, 0.5);
+    }
+    blockquote {
+      color: rgba(@color, 0.7);
+    }
+  }
+  & .person-4 {
+    grid-area: person-5;
+    background-color: @Very-dark-blackish-blue;
+    @color: @White;
+    .person__cover {
+      border-color: #a775f1 !important;
+    }
+    color: @color;
+    .person__name {
+      color: currentColor;
+    }
+    .person__property {
+      color: rgba(@color, 0.5);
+    }
+    blockquote {
+      color: rgba(@color, 0.7);
+    }
+  }
+  & .person-3 {
+    grid-area: person-4;
+    background-color: @White;
+
+    @color: @Very-dark-blackish-blue;
+    color: @color;
+    .person__name {
+      color: currentColor;
+    }
+    .person__property {
+      color: rgba(@color, 0.5);
+    }
+    blockquote {
+      color: rgba(@color, 0.7);
+    }
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+@media only screen and (max-width: 22.8125em) {
+  html {
+    font-size: 68.75%;
+  }
+  .container {
+    // margin: 10%;
+    max-width: 90%;
+    grid-gap: unset;
+    grid-row-gap: 2.5rem;
+    grid-template-rows: repeat(5, [row-start] auto [row-end]) !important;
+    grid-template-areas: unset;
+    & > * {
+      grid-area: unset;
+    }
+    & .person-1 {
+      grid-row: row-start 1 / row-end 1;
+    }
+    & .person-2 {
+      grid-row: row-start 2 / row-end 2;
+    }
+    & .person-5 {
+      grid-row: row-start 5 / row-end 5;
+    }
+    & .person-4 {
+      grid-row: row-start 4 / row-end 4;
+    }
+    & .person-3 {
+      grid-row: row-start 3 / row-end 3;
+    }
+  }
+}
